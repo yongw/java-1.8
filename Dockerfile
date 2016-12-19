@@ -22,3 +22,8 @@ RUN update-alternatives --install "/usr/bin/java" "java" "${JRE_HOME}/bin/java" 
     update-alternatives --install "/usr/bin/javac" "javac" "${JAVA_HOME}/bin/javac" 1 && \
     update-alternatives --set java "${JRE_HOME}/bin/java" && \
     update-alternatives --set javac "${JAVA_HOME}/bin/javac"
+
+RUN localedef -c -i en_US -f UTF-8 en_US.UTF-8 & localedef -c -i zh_CN -f UTF-8 zh_CN.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL zh_CN.UTF-8
